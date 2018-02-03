@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane minWidth="1024.0" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="memail.inbox.InboxController">
+   <children>
+      <TabPane layoutX="1.0" prefHeight="200.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <tabs>
+          <Tab fx:id="inboxTab" closable="false" text="Inbox">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" percentWidth="32.0" prefWidth="220.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="360.0" percentWidth="3.0" prefWidth="360.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="360.0" minWidth="10.0" percentWidth="65.0" prefWidth="360.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" percentHeight="90.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Messages">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font></Label>
+                              <Label text="Content" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font></Label>
+                              <ScrollPane fitToWidth="true" minWidth="310.0" prefHeight="281.0" prefWidth="310.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <content>
+                                    <VBox fx:id="messageListVBox" layoutX="10.0" maxHeight="1.7976931348623157E308" prefWidth="100.0" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS" />
+                                 </content></ScrollPane>
+                              <Region prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <VBox prefHeight="79.0" prefWidth="371.0" spacing="20.0">
+                                       <children>
+                                          <HBox spacing="10.0">
+                                             <children>
+                                                <Label nodeOrientation="LEFT_TO_RIGHT" prefWidth="60.0" text="Sender " />
+                                                <TextField fx:id="senderTextField" editable="false" nodeOrientation="LEFT_TO_RIGHT" />
+                                             </children>
+                                          </HBox>
+                                          <HBox spacing="10.0">
+                                             <children>
+                                                <Label nodeOrientation="LEFT_TO_RIGHT" prefWidth="60.0" text="Subject" />
+                                                <TextField fx:id="subjectTextField" editable="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="417.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="236.0" prefWidth="647.0">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="627.0">
+                                             <children>
+                                                <TextArea fx:id="messageBodyTextArea" editable="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" text="Select one of the messages to be displayed here" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </ScrollPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="replyMessageButton" layoutX="91.0" layoutY="27.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#replyToMessage" prefHeight="63.0" prefWidth="132.0" text="Reply">
+                                             <graphic>
+                                                <ImageView fitHeight="57.0" fitWidth="61.0">
+                                                   <image>
+                                                      <Image url="@../../../../../Desktop/reply.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="deleteMessageButton" layoutX="450.0" layoutY="27.0" mnemonicParsing="false" onAction="#deleteMessage" text="Delete" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Compose">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="365.0" layoutY="75.0" text="Recipient" />
+                        <TextField layoutX="465.0" layoutY="70.0" />
+                        <Label layoutX="365.0" layoutY="128.0" text="Subject" />
+                        <TextField layoutX="465.0" layoutY="123.0" />
+                        <TextArea fx:id="messageTextArea" layoutX="12.0" layoutY="181.0" prefHeight="200.0" prefWidth="981.0" text="Type Message here" />
+                        <Button fx:id="sendButton" layoutX="470.0" layoutY="420.0" mnemonicParsing="false" onAction="#sendMessage" text="Send" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="Sent">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Drafts">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="Contacts">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

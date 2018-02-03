@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="memail.login.LoginController">
+   <children>
+      <TextField fx:id="usernameField" layoutX="223.0" layoutY="135.0" onAction="#login" promptText="Username" />
+      <PasswordField fx:id="passwordField" layoutX="223.0" layoutY="220.0" onAction="#login" promptText="Password" />
+      <CheckBox fx:id="rememberMeBox" layoutX="223.0" layoutY="277.0" mnemonicParsing="false" text="Remember Me" />
+      <Button layoutX="353.0" layoutY="323.0" mnemonicParsing="false" onAction="#login" text="Login" />
+      <Label fx:id="errorLabel" layoutX="214.0" layoutY="187.0" text="Incorrect Username / Password" textFill="#f80808" visible="false" />
+   </children>
+</AnchorPane>
